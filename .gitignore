@@ -165,3 +165,7 @@ cython_debug/
 .DS_Store
 
 pytest.ini
+
+# migrations
+/migrations
+migrations/
