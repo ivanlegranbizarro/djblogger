@@ -169,3 +169,6 @@ pytest.ini
 # migrations
 /migrations
 migrations/
+
+# vscode config
+.vscode/
