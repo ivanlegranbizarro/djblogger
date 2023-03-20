@@ -172,3 +172,6 @@ migrations/
 
 # vscode config
 .vscode/
+
+# pycharm config
+.idea/
