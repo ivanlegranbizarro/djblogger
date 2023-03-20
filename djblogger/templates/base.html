@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -20,12 +21,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 </head>
 
 <body>
 
 
     {% include 'navbar.html' %}
+    {% include './blog/components/splash.html' %}
 
     {% block content %}
 
