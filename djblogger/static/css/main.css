@@ -7,13 +7,13 @@ body {
     font-weight: 500;
 }
 
-.infinite-scroll h1 {
+.infinite-scroll-title {
     font-size: 22px;
     letter-spacing: -0.6px;
 }
 
 @media only screen and (max-width: 767px) {
-    .infinite-scroll h1 {
+    .infinite-scroll-title {
         font-size: 18px;
         letter-spacing: -0.0px;
     }
