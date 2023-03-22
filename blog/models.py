@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.text import slugify
+from taggit.managers import TaggableManager
 
 
 class Post(models.Model):
@@ -10,9 +11,9 @@ class Post(models.Model):
         ('published', 'Published'),
     )
     title = models.CharField(max_length=100, unique=True, validators=[
-                             MinLengthValidator(3)])
+        MinLengthValidator(3)])
     subtitle = models.CharField(max_length=100, unique=True, validators=[
-                                MinLengthValidator(3)])
+        MinLengthValidator(3)])
     slug = models.SlugField(max_length=100, unique=True, null=True, blank=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='post_author')
@@ -20,6 +21,8 @@ class Post(models.Model):
     status = models.CharField(max_length=10, choices=choices, default='draft')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    tags = TaggableManager()
 
     class Meta:
         ordering = ['-created_at']

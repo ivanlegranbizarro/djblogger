@@ -12,6 +12,14 @@ body {
     letter-spacing: -0.6px;
 }
 
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
 @media only screen and (max-width: 767px) {
     .infinite-scroll-title {
         font-size: 18px;

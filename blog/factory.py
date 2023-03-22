@@ -13,3 +13,24 @@ class PostFactory(factory.django.DjangoModelFactory):
     author = User.objects.get_or_create(username='admin')[0]
     content = factory.Faker('text', max_nb_chars=200)
     status = 'published'
+
+    @factory.post_generation
+    def tags(self, create, extracted, **kwargs):
+        if not create:
+            return
+
+        if extracted:
+            self.tags.add(extracted)
+        else:
+            self.tags.add(
+                'Python',
+                'Django',
+                'HTMX',
+                'Django HTMX',
+                'JavaScript',
+                'HTML',
+                'CSS',
+                'Laravel',
+                'Frontend',
+                'Backend',
+            )
