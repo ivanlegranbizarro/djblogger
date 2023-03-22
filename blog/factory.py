@@ -1,6 +1,6 @@
-import factory
 from django.contrib.auth.models import User
 
+import factory
 from blog.models import Post
 
 

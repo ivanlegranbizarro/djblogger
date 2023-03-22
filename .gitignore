@@ -175,3 +175,7 @@ migrations/
 
 # pycharm config
 .idea/
+
+# sublime config
+.sublime-project
+.sublime-workspace
