@@ -8,11 +8,11 @@ class PostFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Post
 
-    title = factory.Faker('sentence', nb_words=4)
-    subtitle = factory.Faker('sentence', nb_words=4)
-    author = User.objects.get_or_create(username='admin')[0]
-    content = factory.Faker('text', max_nb_chars=200)
-    status = 'published'
+    title = factory.Faker("sentence", nb_words=4)
+    subtitle = factory.Faker("sentence", nb_words=4)
+    author = User.objects.get_or_create(username="admin")[0]
+    content = factory.Faker("text", max_nb_chars=200)
+    status = "published"
 
     @factory.post_generation
     def tags(self, create, extracted, **kwargs):
@@ -23,14 +23,14 @@ class PostFactory(factory.django.DjangoModelFactory):
             self.tags.add(extracted)
         else:
             self.tags.add(
-                'Python',
-                'Django',
-                'HTMX',
-                'Django HTMX',
-                'JavaScript',
-                'HTML',
-                'CSS',
-                'Laravel',
-                'Frontend',
-                'Backend',
+                "Python",
+                "Django",
+                "HTMX",
+                "Django HTMX",
+                "JavaScript",
+                "HTML",
+                "CSS",
+                "Laravel",
+                "Frontend",
+                "Backend",
             )
