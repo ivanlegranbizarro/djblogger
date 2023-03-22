@@ -12,3 +12,7 @@ class TestPostModel:
     def test_save_method(self, post_factory):
         post = post_factory()
         assert post.slug == slugify(post.title)
+
+    def test_add_tags(self, post_factory):
+        x = post_factory(tags=["Python", "Django"])
+        assert x.tags.count() == 2
