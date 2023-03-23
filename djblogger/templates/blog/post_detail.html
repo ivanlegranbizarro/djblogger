@@ -1,14 +1,20 @@
-{% extends 'base.html' %}
+{% extends '3-col-template.html' %}
 {% block title %}
     Detail of {{ post.title }}
 {% endblock title %}
 {% block navbar %}
     PERRO MÁGICO
 {% endblock navbar %}
-{% block content %}
+{% block content-left %}
+    {% include 'secondary-navbar.html' %}
+{% endblock content-left %}
+{% block content-mid %}
     <div>{{ post.author }}</div>
     <div>{{ post.updated_at|date:"M d" }}</div>
     <h1>{{ post.title }}</h1>
     <h2>{{ post.subtitle }}</h2>
     <p>{{ post.content }}</p>
-{% endblock content %}
+{% endblock content-mid %}
+{% block content-right %}
+    b
+{% endblock content-right %}
