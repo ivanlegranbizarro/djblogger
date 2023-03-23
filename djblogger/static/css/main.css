@@ -1,0 +1,37 @@
+html,
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.infinite-scroll-title {
+    font-size: 22px;
+    letter-spacing: -0.6px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .infinite-scroll-title {
+        font-size: 18px;
+        letter-spacing: -0.0px;
+    }
+
+    .infinite-scroll-author,
+    .infinite-scroll-date {
+        font-size: 12px;
+    }
+}

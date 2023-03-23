@@ -172,3 +172,10 @@ migrations/
 
 # vscode config
 .vscode/
+
+# pycharm config
+.idea/
+
+# sublime config
+.sublime-project
+.sublime-workspace
