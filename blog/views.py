@@ -20,3 +20,9 @@ class DetailPostView(generic.DetailView):
     template_name = "blog/post_detail.html"
     lookup_field = "slug"
     context_object_name = "post"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        author_posts = Post.objects.filter(author=self.object.author)[:5]
+        context['author_posts'] = author_posts
+        return context
