@@ -1,0 +1,14 @@
+{% extends '3-col-template.html' %}
+{% block title %}
+{% endblock title %}
+{% block navbar %}
+{% endblock navbar %}
+{% block content-left %}
+    {% include 'secondary-navbar.html' %}
+{% endblock content-left %}
+{% block content-mid %}
+    {% include 'blog/components/post-list-elements-tags.html' %}
+{% endblock content-mid %}
+{% block content-right %}
+    {% sidebar_tag_cloud %}
+{% endblock content-right %}
