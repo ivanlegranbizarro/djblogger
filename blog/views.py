@@ -41,3 +41,8 @@ class TagListView(generic.ListView):
         if self.request.htmx:
             return ["blog/components/post-list-elements-tags.html"]
         return ["blog/tags.html"]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.kwargs.get("tag")
+        return context
