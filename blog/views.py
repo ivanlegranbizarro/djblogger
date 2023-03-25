@@ -26,3 +26,23 @@ class DetailPostView(generic.DetailView):
         author_posts = Post.objects.filter(author=self.object.author)[:5]
         context['author_posts'] = author_posts
         return context
+
+
+class TagListView(generic.ListView):
+    model = Post
+    template_name = 'blog/tags.html'
+    paginate_by = 10
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug=self.kwargs.get("tag"))
+
+    def get_template_names(self):
+        if self.request.htmx:
+            return ["blog/components/post-list-elements-tags.html"]
+        return ["blog/tags.html"]
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.kwargs.get("tag")
+        return context

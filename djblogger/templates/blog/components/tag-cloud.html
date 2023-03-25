@@ -5,7 +5,8 @@
             {% for tag in tags %}
                 <span class="border border-dark p-1 px-3 mb-2 me-1 rounded-pill"
                       style="display: inline-block">
-                    <a href="" class="fs-15 fw-500 text-decoration-none text-black">{{ tag.name }}</a>
+                    <a href="{% url 'blog:post_by_tag' tag.slug %}"
+                       class="fs-15 fw-500 text-decoration-none text-black">{{ tag.name }}</a>
                 </span>
             {% endfor %}
         </div>
