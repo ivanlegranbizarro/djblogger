@@ -1,28 +1,30 @@
+<style>
+  p {
+    font-family: 'Merriweather', sans-serif;
+    line-height: 22px;
+  }
+
+</style>
 {% for post in posts %}
-    <a class="text-decoration-none"
-       href="{% url 'blog:post_detail' post.slug %}">
-        {% if forloop.last %}
-            <div class="card border-0 pb-3 pb-sm-5"
-                 hx-trigger="revealed"
-                 hx-get="{{ request.path }}?page={{ page_obj.next_page_number }}"
-                 hx-swap=" afterend">
-            {% else %}
-                <div class="card border-0 pb-3 pb-sm-5">
-                {% endif %}
-                <div class="row">
-                    <div class="col-8">
-                        <div class="card-body p-0">
-                            <div class="pb-2 text-body infinite-scroll-author">{{ post.author }}</div>
-                            <h1 class="mb-1 fs-4 text-body fw-bold infinite-scroll-title">{{ post.title|truncatechars:80 }}</h1>
-                            <h2 class="text-muted fs-6 d-none d-md-block">{{ post.content|truncatechars:180 }}</h2>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <img src="https://picsum.photos/205/115"
-                             alt="Image of {{ post.title }}"
-                             class="img-fluid float-end"/>
-                    </div>
-                </div>
-            </div>
-        </a>
-    {% endfor %}
+<a class="text-decoration-none" href="{% url 'blog:post_detail' post.slug %}">
+  {% if forloop.last %}
+  <div class="card border-0 pb-3 pb-sm-5" hx-trigger="revealed"
+    hx-get="{{ request.path }}?page={{ page_obj.next_page_number }}" hx-swap=" afterend">
+    {% else %}
+    <div class="card border-0 pb-3 pb-sm-5">
+      {% endif %}
+      <div class="row">
+        <div class="col-9">
+          <div class="card-body p-0">
+            <div class="pb-2 text-body infinite-scroll-author small">{{ post.author }}</div>
+            <h1 class="mb-1 fs-4 text-body fw-bold infinite-scroll-title">{{ post.title|truncatechars:80 }}</h1>
+            <p class="text-dark d-none d-md-block fs-14">{{ post.content|truncatechars:180 }}</p>
+          </div>
+        </div>
+        <div class="col-3">
+          <img src="https://picsum.photos/112/112" alt="Image of {{ post.title }}" class="img-fluid float-end" />
+        </div>
+      </div>
+    </div>
+</a>
+{% endfor %}
