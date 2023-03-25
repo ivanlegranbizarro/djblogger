@@ -19,3 +19,10 @@ class TestListByTag:
         response = client.get(url, **headers)
         assertTemplateUsed(
             response, "blog/components/post-list-elements-tags.html")
+
+    def test_tag_filter(self, client, post_factory):
+        x = post_factory(title='Test Post', tags=['test-tag'])
+        url = reverse('blog:post_by_tag', kwargs={'tag': 'test-tag'})
+        response = client.get(url)
+        assert x in response.context['posts']
+       
